@@ -2,11 +2,11 @@
 
 -> Team members:
 
-1- Dania Nazzal --> Requirements  -  Introduction  
+1- Dania Nazzal --> Requirements  -  Introduction  - Appearance
 
-2- Raghad Daraghmeh --> Requirements  -  Overall Description  -  Stakeholder  _  Requirements classification
+2- Raghad Daraghmeh --> Requirements  -  Overall Description  -  Stakeholder  _  Requirements classification  -  Appearance  - modification
 
-3- Manar Saleh--> Requirements  -  Stakeholder  -  Appendices  _  Requirements classification
+3- Manar Saleh--> Requirements  -  Stakeholder  -  Appendices  _  Requirements classification  -  Appearance  -  modification
 
 4- Mays Ismael --> Requirements  -  Preface  
 

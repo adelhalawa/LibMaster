@@ -361,9 +361,9 @@ String mail;
     }//GEN-LAST:event_jLabel7MouseReleased
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-      chpass cp=new chpass();
+      /*chpass cp=new chpass();
       cp.setVisible(true);
-      this.setVisible(false);
+      this.setVisible(false);*/
     }//GEN-LAST:event_jLabel5MouseClicked
 
     /**

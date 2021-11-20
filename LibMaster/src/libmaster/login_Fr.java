@@ -94,6 +94,11 @@ public class login_Fr extends javax.swing.JFrame {
 
         jLabel5.setForeground(new java.awt.Color(96, 64, 32));
         jLabel5.setText("Forgot your password?");
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -204,6 +209,11 @@ public class login_Fr extends javax.swing.JFrame {
         // TODO add your handling code here:
       
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        recovery1 r1=new recovery1();
+        r1.setVisible(true);
+    }//GEN-LAST:event_jLabel5MouseClicked
 
     /**
      * @param args the command line arguments

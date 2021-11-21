@@ -24,7 +24,11 @@
 
 2- Customers: whose information is recorded in the library system ,to buying or borrowing books.
 
+part 3-> sequence digram:
+https://drive.google.com/file/d/1IIHdLh1S-JR2kex3X6OO3HDhbRVh0Gip/view?usp=sharing
 
 
 part3->pair programming :
 https://drive.google.com/file/d/1WjluqvwqlC75ikvWgdMyMBQpuoGwqQ4p/view?usp=sharing
+
+

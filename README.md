@@ -23,3 +23,8 @@
 1- Library managers(admin ): who are responsible for adding book, modifying or deleting books .
 
 2- Customers: whose information is recorded in the library system ,to buying or borrowing books.
+
+
+
+part3->pair programming :
+https://drive.google.com/file/d/1WjluqvwqlC75ikvWgdMyMBQpuoGwqQ4p/view?usp=sharing

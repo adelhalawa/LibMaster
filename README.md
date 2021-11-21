@@ -34,14 +34,15 @@ UML class diagrams :
 
 https://drive.google.com/file/d/113m8vtbzI6l5VaNrJ7U3kyDw6cvkCtUE/view?fbclid=IwAR2kwHsZtT0poEQMaGX8hKlD3X4wwXD25JeLfymlNXNhVPRx-Yv4-zcKFQk
 
-part 3:
+
 
 sequence digram:
 
 https://drive.google.com/file/d/1IIHdLh1S-JR2kex3X6OO3HDhbRVh0Gip/view?usp=sharing
 
+Burndown Chart :
 
-part3:
+https://drive.google.com/file/d/1hlbrM0j-yaVqwK1ukAgT2thYPKgwCnDR/view?fbclid=IwAR3NLu7MWJxTMvR8HoB1QTec6UtnXGn2z5zLSf2SKPQpzyxlYLm3JDmm8TM
 
 pair programming :
 

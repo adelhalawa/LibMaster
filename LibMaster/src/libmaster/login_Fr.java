@@ -1,7 +1,22 @@
 package libmaster;
 
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,11 +30,35 @@ import javax.swing.ImageIcon;
  */
 public class login_Fr extends javax.swing.JFrame {
 
-    /**
-     * Creates new form login_Fr
-     */
+    public String email;
+    public String pass;   
+    public Connection con;
+    public Statement S;
+    public PreparedStatement pst;
+    public ResultSet R;
+    
     public login_Fr() {
         initComponents();
+        email=new String();
+        pass=new String();
+        
+         try {
+              
+             String host ="jdbc:oracle:thin:@localhost:1521:orcl";
+             String Name="Eng_Dania";
+             String password="11820498";
+             con = DriverManager.getConnection(host, Name, password);
+             S=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
+             
+             
+              
+           }
+        catch(SQLException e)
+          { 
+            System.out.println(e);
+          }
+        
+
     }
 
     /**
@@ -65,7 +104,7 @@ public class login_Fr extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(96, 64, 32));
-        jLabel2.setText("User Name:");
+        jLabel2.setText("Email:");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(96, 64, 32));
@@ -86,6 +125,11 @@ public class login_Fr extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Log in");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -105,14 +149,13 @@ public class login_Fr extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -190,13 +233,9 @@ public class login_Fr extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-        // TODO add your handling code here:
-//      
-//        f.setVisible(true);
-//        f.pack();
-//        f.setLocationRelativeTo(null);
-//        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        this.dispose();
+           Register_Fr rf=new Register_Fr();
+           rf.setVisible(true);
+           this.setVisible(false);
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -206,14 +245,52 @@ public class login_Fr extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-      
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         recovery1 r1=new recovery1();
-        r1.setVisible(true);
+        r1.setVisible(true);  
     }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+       
+        email =jTextField2.getText();
+        pass=jTextField2.getText();
+        
+        try 
+        {
+            String SQL="Select * From User_";
+            R=S.executeQuery(SQL);
+                
+            
+            while(R.next())
+            {
+                String e=R.getString("Email");
+                String p=R.getString("Password");
+                int a =R.getInt("Admin");
+               
+                if(email.equals(e)&&pass.equals(p)&&a==1)
+                {
+                     bookadmin ba=new bookadmin();
+                     ba.setVisible(true);
+                     this.setVisible(false);
+                     break;
+                    
+                }
+              
+              }
+        }
+    catch (SQLException ex) 
+    {
+        ex.printStackTrace();
+    }
+    
+    
+   
+        
+        
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments

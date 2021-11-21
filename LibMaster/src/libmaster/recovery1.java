@@ -30,13 +30,13 @@ public class recovery1 extends javax.swing.JFrame {
         this.setTitle("Mailer");
         
          try {
-              String host ="jdbc:derby://localhost:1527/LibMaster [manager on MANAGER]";
-              String Name="MANAGER";
-              String password="11820498";
-              con = DriverManager.getConnection(host, Name, password);
-              S=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
-             
               
+             String host ="jdbc:oracle:thin:@localhost:1521:orcl";
+             String Name="Eng_Dania";
+             String password="11820498";
+             con = DriverManager.getConnection(host, Name, password);
+             S=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
+                   
            }
         catch(SQLException e)
           { 
@@ -136,19 +136,18 @@ public class recovery1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-       email=jTextField1.getText();
-       String m=new String();
-       
+       email=String.valueOf( jTextField1.getText());
+       String m=new String();     
        
     try 
     {
-        R=S.executeQuery("Select * from USER_ where Email="+email);
+        R=S.executeQuery("Select * from USER_ where EMAIL='"+email+"'");
        while(R.next())
        {
-           if(String.valueOf(R.getString(0)).equals(String.valueOf(email)))
+           if(String.valueOf(R.getString(1)).equals(String.valueOf(email)))
            {
               m="Dear "+R.getString(1)+"\n"+"It appears that you are having difficulty remembering your password.\n" +
-                "Your current password:"+R.getString(3)+"\n" +"If you want to change it, you can do so through your page on the site"+"\n"+"We thank you for writing to us\n" +
+                "Your current password:"+"\n" +"If you want to change it, you can do so through your page on the site"+"\n"+"We thank you for writing to us\n" +
                 "Have a nice day";
          
         Properties props=new Properties();
@@ -165,7 +164,7 @@ public class recovery1 extends javax.swing.JFrame {
         props.setProperty("mail.smtp.socketFactory.port", "465"); 
         
         String myAcc="libmastersystem2021@gmail.com";
-        String myPass="11820498";
+        String myPass="taodmgremstcorvw";
         
         Session session = Session.getDefaultInstance(props,  
            new javax.mail.Authenticator()

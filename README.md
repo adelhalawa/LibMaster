@@ -24,30 +24,31 @@
 
 2- Customers: whose information is recorded in the library system ,to buying or borrowing books.
 
-part2:
+part2: Ali Yaseen
 
 https://docs.google.com/document/d/1EkOe7tx0md2YX1tTRKqR1oBaPWKd6EUg/edit?usp=sharing&ouid=112904180683091193469&rtpof=true&sd=true
 
 part 3 : 
 
-UML class diagrams : 
+UML class diagrams : Ali Yaseen / Adel Halawa / Muhamed Draidi
 
 https://drive.google.com/file/d/113m8vtbzI6l5VaNrJ7U3kyDw6cvkCtUE/view?fbclid=IwAR2kwHsZtT0poEQMaGX8hKlD3X4wwXD25JeLfymlNXNhVPRx-Yv4-zcKFQk
 
 
-backlog time:https://docs.google.com/document/d/1jQOtclK4KbixZxxTCwdSXK2vze6xzI_M/edit?usp=sharing&ouid=101876335193400640729&rtpof=true&sd=true
+backlog time:   Raghad Daraghmeh   Manar Saleh   Mays Ismael
+https://docs.google.com/document/d/1jQOtclK4KbixZxxTCwdSXK2vze6xzI_M/edit?usp=sharing&ouid=101876335193400640729&rtpof=true&sd=true
 
 
 
-sequence digram:
+sequence digram: Raghad Daraghmeh   Manar Saleh
 
 https://drive.google.com/file/d/1IIHdLh1S-JR2kex3X6OO3HDhbRVh0Gip/view?usp=sharing
 
-Burndown Chart :
+Burndown Chart : Mays Ismael
 
 https://drive.google.com/file/d/1hlbrM0j-yaVqwK1ukAgT2thYPKgwCnDR/view?fbclid=IwAR3NLu7MWJxTMvR8HoB1QTec6UtnXGn2z5zLSf2SKPQpzyxlYLm3JDmm8TM
 
-pair programming :
+pair programming :  Raghad Daraghmeh   Manar Saleh
 
 https://drive.google.com/file/d/1WjluqvwqlC75ikvWgdMyMBQpuoGwqQ4p/view?usp=sharing
 

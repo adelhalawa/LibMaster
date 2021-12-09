@@ -1,7 +1,14 @@
 package libmaster;
 
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,11 +22,25 @@ import javax.swing.ImageIcon;
  */
 public class Register_Fr extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Register_Fr
-     */
+    Connection con;
+    Statement S;
+    PreparedStatement pst;
+    ResultSet R;
+    
     public Register_Fr() {
         initComponents();
+         try {
+             
+              String host ="jdbc:oracle:thin:@localhost:1521:orcl";
+              String Name="Eng_Dania";
+              String password="11820498";
+              con = DriverManager.getConnection(host, Name, password);
+              S=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
+          }
+        catch(SQLException e)
+          { 
+            System.out.println(e);
+          } 
     }
 
     /**
@@ -79,11 +100,21 @@ public class Register_Fr extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Cancel");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(96, 64, 32));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Confirm");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -170,6 +201,51 @@ public class Register_Fr extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+      login_Fr lf=new login_Fr();
+      lf.setVisible(true);
+      this.setVisible(false);
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        String userName=jTextField1.getText();
+        String Email=jTextField2.getText();
+        String Password=jTextField4.getText();
+        String Address=jTextField5.getText();
+        String Phone=jTextField6.getText();
+        
+          try{
+        
+               String SQL="INSERT INTO User_(Email,UserName,Admin,Salary,Subscriber,ADDRESS,PASSWORD_,Phone) " 
+                       + "VALUES(?,?,?,?,?,?,?,?)";
+              
+               pst=con.prepareStatement(SQL);
+               pst.setString(1,Email);
+               pst.setString(2,userName);
+               pst.setInt(3,0);
+               pst.setDouble(4,0);
+               pst.setInt(5,0);
+               pst.setString(6,Address);
+               pst.setString(7,Password);
+               pst.setString(8,Phone);
+               pst.executeUpdate();
+               
+               jTextField1.setText("");
+               jTextField2.setText("");
+               jTextField4.setText("");
+               jTextField5.setText("");
+               jTextField6.setText("");
+            }
+           
+        catch(SQLException e)
+          { 
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null, "This User already exist");
+          } 
+
+        
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments

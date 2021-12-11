@@ -240,6 +240,36 @@ public class Book extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {                                     
+        // TODO add your handling code here:
+        
+        login_Fr ff= new login_Fr();
+        ff.setVisible(true);
+        dispose();
+       
+        
+    }                                    
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {                                     
+        // TODO add your handling code here:
+        search ss= new search();
+        ss.setVisible(true);
+        dispose();
+    }                                    
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {                                     
+        // TODO add your handling code here:
+        personal pp= new personal();
+        pp.setVisible(true);
+        dispose();
+    }                                    
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {                                     
+        // TODO add your handling code here:
+        Book b= new Book();
+        b.setVisible(true);
+        dispose();
+    }                                    
 
     /**
      * @param args the command line arguments
